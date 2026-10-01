@@ -36,6 +36,11 @@ void table_add_column(Table *table, const char *name, DataType type) {
 }
 
 void table_add_row(Table *table, const Row *row) {
+  if (!table_validate_row(table, row)) {
+    printf("Error: invalid row\n");
+    return;
+  }
+
   if (row->size != table->column_count) {
     printf("Error: row has %zu cells, but table expects %zu\n", row->size,
            table->column_count);
@@ -126,4 +131,18 @@ void table_free(Table *table) {
   table->column_count = 0;
   table->row_count = 0;
   table->row_capacity = 0;
+}
+
+int table_validate_row(const Table *table, const Row *row) {
+  if (row->size != table->column_count) {
+    return 0;
+  }
+
+  for (size_t i = 0; i < row->size; i++) {
+    if (row->cells[i].type != table->columns[i].type) {
+      return 0;
+    }
+  }
+
+  return 1;
 }

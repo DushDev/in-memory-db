@@ -29,7 +29,7 @@ Database
 - [x] Dynamic arrays
 - [x] Deep copying
 - [x] Memory cleanup
-- [ ] Row validation against table schema
+- [x] Row validation against table schema
 
 ### 2. CRUD
 

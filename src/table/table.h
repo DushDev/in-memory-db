@@ -16,6 +16,8 @@ typedef struct {
   size_t row_capacity;
 } Table;
 
+int table_validate_row(const Table *table, const Row *row);
+
 void table_init(Table *table, const char *name);
 
 void table_add_column(Table *table, const char *name, DataType type);

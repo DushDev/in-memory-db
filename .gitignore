@@ -3,3 +3,4 @@
 *.exe
 build/
 .DS_Store
+in-memory-db
