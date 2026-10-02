@@ -1,5 +1,6 @@
 #include "database.h"
 #include "../table/table.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -60,4 +61,15 @@ void database_print(const Database *db) {
   for (size_t i = 0; i < db->table_count; i++) {
     table_print(&db->tables[i]);
   }
+}
+
+void database_insert(Database *db, const char *table_name, const Row *row) {
+  Table *table = database_get_table(db, table_name);
+
+  if (table == NULL) {
+    printf("Error: table '%s' not found\n", table_name);
+    return;
+  }
+
+  table_add_row(table, row);
 }

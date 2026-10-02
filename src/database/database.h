@@ -19,4 +19,6 @@ void database_print(const Database *db);
 
 void database_free(Database *db);
 
+void database_insert(Database *db, const char *table_name, const Row *row);
+
 #endif

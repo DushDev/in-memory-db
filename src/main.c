@@ -45,7 +45,7 @@ int main(void) {
     printf("FAIL\n");
   }
 
-  table_add_row(users, &row1);
+  database_insert(&db, "users", &row1);
 
   cell_free(&id1);
   cell_free(&name1);
@@ -79,7 +79,7 @@ int main(void) {
     printf("FAIL\n");
   }
 
-  table_add_row(users, &row2);
+  database_insert(&db, "users", &row2);
 
   cell_free(&id2);
   cell_free(&name2);
@@ -110,7 +110,7 @@ int main(void) {
     printf("FAIL\n");
   }
 
-  table_add_row(users, &row3);
+  database_insert(&db, "users", &row3);
 
   cell_free(&id3);
   cell_free(&name3);
